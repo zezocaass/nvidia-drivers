@@ -41,4 +41,4 @@ apt install -y linux-headers-$(uname -r) build-essential dkms
 echo "==> Installing NVIDIA driver and firmware..."
 apt install -y nvidia-driver firmware-misc-nonfree
 
-echo "Installation complete. Please reboot your system."
+echo "Installation complete. Please reboot your system to activate the NVIDIA driver."
