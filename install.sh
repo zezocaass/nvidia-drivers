@@ -21,6 +21,10 @@ if command -v nvidia-smi &> /dev/null; then
     exit 0
 fi
 
+# Backup sources.list
+echo "==> Creating backup of /etc/apt/sources.list..."
+cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
 echo "==> Updating APT sources to enable contrib, non-free, and non-free-firmware..."
 sed -i "/^deb http.*main/ s/main.*/main contrib non-free non-free-firmware/" /etc/apt/sources.list
 
