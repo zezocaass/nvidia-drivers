@@ -14,6 +14,13 @@ if ! lspci | grep -i nvidia &> /dev/null; then
     exit 1
 fi
 
+echo "==> Checking if NVIDIA driver is already installed..."
+if command -v nvidia-smi &> /dev/null; then
+    echo "NVIDIA driver is already installed:"
+    nvidia-smi
+    exit 0
+fi
+
 echo "==> Updating APT sources to enable contrib, non-free, and non-free-firmware..."
 sed -i "/^deb http.*main/ s/main.*/main contrib non-free non-free-firmware/" /etc/apt/sources.list
 
